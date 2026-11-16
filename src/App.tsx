@@ -654,15 +654,10 @@ function App() {
         <div className="app">
             {activeTab === 'home' && (
                 <main className="content">
-                    <header className="header">
-                        <p className="eyebrow">MY SHOPPING ASSISTANT</p>
-                        <h1>お買いもの</h1>
-                    </header>
 
                     <section className="hero">
-                        <p className="eyebrow">TODAY'S SHOPPING</p>
-                        <h2>買い忘れ、ゼロへ。</h2>
-                        <p>今日のお買いものを確認しましょう。</p>
+                        <p className="eyebrow">SHOPPING LIST</p>
+                        <h1>お買い物メモ</h1>
                     </section>
 
                     <section className="shopping-section">
@@ -857,12 +852,10 @@ function App() {
                 <main className="content">
                     <section className="history-section">
                         <header className="history-header">
-                            <p className="eyebrow">
-                                MY SHOPPING ASSISTANT
-                            </p>
+                            <p className="eyebrow">PURCHASE HISTORY</p>
                             <h1>購入履歴</h1>
                             <p className="history-subtitle">
-                                これまでのお買いものを振り返る
+                                これまでのお買い物を振り返る
                             </p>
                         </header>
                         {/* 購入履歴のサマリーカード */}
@@ -941,12 +934,8 @@ function App() {
                 <main className="content">
                     <section className="prediction-section">
                         <header className="prediction-header">
-                            <p className="eyebrow">
-                                MY SHOPPING ASSISTANT
-                            </p>
-
+                            <p className="eyebrow">SHOPPING PREDICTION</p>
                             <h1>購入予測</h1>
-
                             <p className="prediction-subtitle">
                                 いつものお買いものを、もっと便利に。
                             </p>
@@ -1030,24 +1019,30 @@ function App() {
                     type="button"
                     className={activeTab === 'home' ? 'active' : ''}
                     onClick={() => setActiveTab('home')}
+                    aria-current={activeTab === 'home' ? 'page' : undefined}
                 >
-                    ⌂ ホーム
+                    <span className="nav-icon" aria-hidden="true">⌂</span>
+                    <span>ホーム</span>
                 </button>
 
                 <button
                     type="button"
                     className={activeTab === 'history' ? 'active' : ''}
                     onClick={() => setActiveTab('history')}
+                    aria-current={activeTab === 'history' ? 'page' : undefined}
                 >
-                    購入履歴
+                    <span className="nav-icon" aria-hidden="true">◷</span>
+                    <span>購入履歴</span>
                 </button>
 
                 <button
                     type="button"
                     className={activeTab === 'prediction' ? 'active' : ''}
                     onClick={() => setActiveTab('prediction')}
+                    aria-current={activeTab === 'prediction' ? 'page' : undefined}
                 >
-                    購入予測
+                    <span className="nav-icon" aria-hidden="true">▥</span>
+                    <span>購入予測</span>
                 </button>
             </nav>
         </div>

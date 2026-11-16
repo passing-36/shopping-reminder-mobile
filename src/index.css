@@ -1,9 +1,29 @@
 :root {
-  font-family: "Meiryo", "Hiragino Kaku Gothic ProN",
+  /* フォント設定 */
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Meiryo",
     sans-serif;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  /* 新しいカラーパレット */
+  --color-background: #F8F7F3;
+  --color-surface: #FFFFFF;
+  --color-primary: #315247;
+  --color-sage: #91AA96;
+  --color-sage-light: #E4EEE6;
+  --color-border: #DDE5DD;
+  --color-muted: #789083;
+  --color-prediction: #F0EDE6;
+
+  /* 基本の文字色と背景色 */
+  color: var(--color-primary);
+  background-color: var(--color-background);
 }
 
 * {
@@ -13,6 +33,7 @@
 body {
   margin: 0;
   min-width: 320px;
+  background-color: var(--color-background);
 }
 
 button,
