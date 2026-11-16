@@ -71,6 +71,26 @@ function App() {
     })
 
     const [newItem, setNewItem] = useState('')
+    const [manualFrequentItems, setManualFrequentItems] = useState<string[]>(() => {
+        const saved = localStorage.getItem('manualFrequentItems')
+
+        if (saved) {
+            try {
+                const parsed: unknown = JSON.parse(saved)
+
+                if (
+                    Array.isArray(parsed) &&
+                    parsed.every((item) => typeof item === 'string')
+                ) {
+                    return parsed as string[]
+                }
+            } catch (error) {
+                console.error('よく買うものの読み込みに失敗しました', error)
+            }
+        }
+
+        return []
+    })
     // 現在表示している画面を管理する
     const [activeTab, setActiveTab] = useState<
         'home' | 'history' | 'prediction'
@@ -116,6 +136,12 @@ function App() {
             JSON.stringify(purchaseHistory)
         )
     }, [purchaseHistory])
+    useEffect(() => {
+        localStorage.setItem(
+            'manualFrequentItems',
+            JSON.stringify(manualFrequentItems)
+        )
+    }, [manualFrequentItems])
     // 買い物リストが変更されたら保存する
     useEffect(() => {
         localStorage.setItem(
@@ -129,9 +155,28 @@ function App() {
 
         if (name === '') return
 
-        // 同じ名前の商品があるか確認
-        if (shoppingItems.some((item) => item.name === name)) {
+        // 同じ名前の商品を探す
+        const existingItem = shoppingItems.find(
+            (item) => item.name === name
+        )
+
+        // すでに未購入の商品がある場合
+        if (existingItem && !existingItem.purchased) {
             alert('すでに買い物リストにあります')
+            return
+        }
+
+        // 購入済みの商品がある場合は未購入に戻す
+        if (existingItem && existingItem.purchased) {
+            setShoppingItems((currentItems) =>
+                currentItems.map((item) =>
+                    item.id === existingItem.id
+                        ? {...item, purchased: false}
+                        : item
+                )
+            )
+
+            setNewItem('')
             return
         }
 
@@ -155,7 +200,46 @@ function App() {
             currentItems.filter((item) => item.id !== id)
         )
     }
-    const frequentItems = ['牛乳', '卵', 'パン', '洗剤']
+    const [newFrequentItem, setNewFrequentItem] = useState('')
+
+    const addManualFrequentItem = () => {
+        const name = newFrequentItem.trim()
+
+        if (!name) return
+
+        setManualFrequentItems((currentItems) => {
+            if (currentItems.includes(name)) {
+                return currentItems
+            }
+
+            return [...currentItems, name]
+        })
+
+        setNewFrequentItem('')
+    }
+
+    const deleteManualFrequentItem = (name: string) => {
+        setManualFrequentItems((currentItems) =>
+            currentItems.filter((item) => item !== name)
+        )
+    }
+    const purchaseCounts = purchaseHistory.reduce<Record<string, number>>(
+        (counts, item) => {
+            const name = item.name.trim()
+
+            if (name) {
+                counts[name] = (counts[name] ?? 0) + 1
+            }
+
+            return counts
+        },
+        {}
+    )
+
+    const frequentItems = Object.entries(purchaseCounts)
+        .filter(([, count]) => count >= 3)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name]) => name)
     // 購入状態を切り替え、購入履歴を記録する
     const togglePurchased = (id: string) => {
         const targetItem = shoppingItems.find(
@@ -166,22 +250,44 @@ function App() {
 
         // 未購入から購入済みに変更するときだけ履歴を記録
         if (!targetItem.purchased) {
-            const historyItem: PurchaseHistoryItem = {
-                id: crypto.randomUUID(),
-                name: targetItem.name,
-                purchasedAt: new Date().toISOString()
-            }
+            const now = new Date()
 
-            setPurchaseHistory((currentHistory) => [
-                ...currentHistory,
-                historyItem
-            ])
-            // 今回の購入操作を記憶する
-            setLastPurchaseAction({
-                itemId: targetItem.id,
-                historyId: historyItem.id,
-                itemName: targetItem.name
+            // 日本時間ではなく、端末の現地日付で比較する
+            const today = now.toLocaleDateString('sv-SE')
+
+            // 同じ商品を今日すでに購入したか確認
+            const alreadyPurchasedToday = purchaseHistory.some((item) => {
+                const purchaseDate = new Date(item.purchasedAt)
+                    .toLocaleDateString('sv-SE')
+
+                return (
+                    item.name === targetItem.name &&
+                    purchaseDate === today
+                )
             })
+
+            if (!alreadyPurchasedToday) {
+                // 今日初めて購入した商品だけ履歴に追加
+                const historyItem: PurchaseHistoryItem = {
+                    id: crypto.randomUUID(),
+                    name: targetItem.name,
+                    purchasedAt: now.toISOString()
+                }
+
+                setPurchaseHistory((currentHistory) => [
+                    ...currentHistory,
+                    historyItem
+                ])
+
+                setLastPurchaseAction({
+                    itemId: targetItem.id,
+                    historyId: historyItem.id,
+                    itemName: targetItem.name
+                })
+            } else {
+                // 履歴を追加していない場合は取り消し情報をクリア
+                setLastPurchaseAction(null)
+            }
         }
         // 購入済みを手動で解除した場合は取り消し情報を消す
         if (targetItem.purchased && lastPurchaseAction?.itemId === id) {
@@ -691,6 +797,7 @@ function App() {
                         <div className="frequent-grid">
                             {frequentItems.map((item) => (
                                 <button
+                                    type="button"
                                     className="frequent-button"
                                     key={item}
                                     onClick={() => addFrequentItem(item)}
@@ -698,6 +805,50 @@ function App() {
                                     ＋ {item}
                                 </button>
                             ))}
+                        </div>
+
+                        <h3>自分で登録した商品</h3>
+
+                        <div className="frequent-grid">
+                            {manualFrequentItems.map((item) => (
+                                <div className="manual-frequent-item" key={item}>
+                                    <button
+                                        type="button"
+                                        className="frequent-button"
+                                        onClick={() => addFrequentItem(item)}
+                                    >
+                                        ＋ {item}
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className="manual-delete-button"
+                                        onClick={() => deleteManualFrequentItem(item)}
+                                        aria-label={`${item}を登録解除`}
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="manual-frequent-form">
+                            <input
+                                type="text"
+                                placeholder="よく買う商品を入力"
+                                value={newFrequentItem}
+                                onChange={(e) => setNewFrequentItem(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') addManualFrequentItem()
+                                }}
+                            />
+
+                            <button
+                                type="button"
+                                onClick={addManualFrequentItem}
+                            >
+                                ＋ 登録
+                            </button>
                         </div>
                     </section>
                 </main>
