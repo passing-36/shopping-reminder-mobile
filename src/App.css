@@ -1,0 +1,698 @@
+.app {
+  min-height: 100dvh;
+  background: #F7F8F6;
+  color: #243E34;
+}
+
+.content {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 36px 16px 110px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #668177;
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: 29px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 17px;
+  margin: 0 0 12px;
+}
+
+.hero {
+  background: #E4F3EA;
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 26px;
+}
+
+.hero h2 {
+  font-size: 21px;
+}
+
+.hero p:last-child {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-heading span {
+  font-size: 12px;
+  color: #668177;
+}
+
+.add-form {
+  display: flex;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.add-form input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #B8CFC2;
+  border-radius: 12px;
+  background: white;
+  font-size: 14px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.add-button {
+  border: none;
+  border-radius: 12px;
+  background: #3F9D80;
+  color: white;
+  padding: 0 17px;
+}
+
+.shopping-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 9px;
+}
+
+.check-circle {
+  color: #3F9D80;
+  font-size: 25px;
+}
+
+.item-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.delete-button {
+  background: #F7E6E6;
+  color: #995454;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 10px;
+}
+
+.prediction-card {
+  background: #F0EAFB;
+  border-radius: 20px;
+  padding: 22px 18px;
+  margin: 26px 0 20px;
+  color: #624B8E;
+}
+
+.prediction-card p {
+  font-size: 12px;
+}
+
+.prediction-message {
+  margin-top: 25px;
+}
+
+.frequent-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 16px;
+}
+
+.frequent-card p {
+  font-size: 12px;
+  color: #668177;
+}
+
+.frequent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.frequent-button {
+  min-width: 0;
+  min-height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: #E4F3EA;
+  color: #286D55;
+  font-size: 12px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: #F7F8F6;
+  box-sizing: border-box;
+}
+
+.bottom-nav button {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 4px;
+  background: #FFFFFF;
+  color: #286D55;
+  font-size: 12px;
+}
+
+.bottom-nav .active {
+  background: #DCEFE6;
+}
+/* 購入済みチェックボタン */
+.check-circle {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #EDF2EF;
+  color: #3F9D80;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.check-circle[aria-pressed="true"] {
+  background: #3F9D80;
+  color: white;
+}
+/* 購入済みチェックボタン */
+.check-circle {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #EDF2EF;
+  color: #3F9D80;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* 購入済みの場合 */
+.check-circle[aria-pressed="true"] {
+  background: #3F9D80;
+  color: white;
+}
+/* バックアップボタン */
+.backup-area {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 16px 110px;
+}
+
+.backup-button {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #B8CFC2;
+  border-radius: 12px;
+  background: white;
+  color: #286D55;
+  font-size: 13px;
+  cursor: pointer;
+}
+/* バックアップ復元ボタン */
+.restore-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 10px;
+  border: 1px solid #B8CFC2;
+  border-radius: 12px;
+  background: #E4F3EA;
+  color: #286D55;
+  font-size: 13px;
+  cursor: pointer;
+}
+/* 購入済み商品の折りたたみボタン */
+.purchased-toggle {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #E4F3EA;
+  color: #286D55;
+  font-family: "Meiryo", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 購入済み商品のカード */
+.purchased-card {
+  background: #EAF2ED;
+  margin-top: 8px;
+}
+
+.purchased-card .item-name {
+  color: #668177;
+  text-decoration: line-through;
+}
+/* 購入履歴画面の見出し */
+.history-header {
+  margin-bottom: 24px;
+}
+
+.history-header h1 {
+  margin: 8px 0;
+  color: #243E34;
+  font-family: "Meiryo", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.history-subtitle {
+  margin: 0;
+  color: #668177;
+  font-family: "Meiryo", sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+}
+/* 購入履歴のサマリーカード */
+.history-summary {
+  background: #E4F3EA;
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.history-summary-label {
+  margin: 0;
+  color: #527767;
+  font-family: "Meiryo", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.history-summary-count {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 12px 0;
+  color: #286D55;
+}
+
+.history-summary-count strong {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.history-summary-count span {
+  font-size: 15px;
+}
+
+.history-summary-description {
+  margin: 0;
+  color: #527767;
+  font-size: 12px;
+}
+/* 日付ごとの購入履歴 */
+.history-day {
+  margin-bottom: 24px;
+}
+
+.history-date-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.history-date-heading h2 {
+  margin: 0;
+  font-size: 14px;
+  color: #243E34;
+}
+
+.history-date-heading span {
+  font-size: 12px;
+  color: #668177;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+  background: #FFFFFF;
+  border-radius: 14px;
+}
+
+.history-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #E4F3EA;
+  color: #3F9D80;
+  font-size: 18px;
+}
+
+.history-item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.history-item-info strong {
+  font-size: 13px;
+  color: #243E34;
+}
+
+.history-item-info small {
+  font-size: 11px;
+  color: #668177;
+}
+
+.history-status {
+  font-size: 11px;
+  color: #3F9D80;
+}
+/* 購入履歴の削除ボタン */
+.history-delete-button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #F8E6E6;
+  color: #A65353;
+  font-family: "Meiryo", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.history-delete-button:hover {
+  background: #F2D6D6;
+}
+/* 購入操作の取り消し通知 */
+.purchase-undo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: #E4F3EA;
+  color: #286D55;
+  font-family: "Meiryo", sans-serif;
+  font-size: 12px;
+}
+
+.purchase-undo span {
+  flex: 1;
+}
+
+.purchase-undo-button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid #3F9D80;
+  border-radius: 9px;
+  background: #FFFFFF;
+  color: #286D55;
+  font-family: "Meiryo", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.purchase-undo-button:hover {
+  background: #D8EBE1;
+}
+/* ========================================
+   購入予測カード
+======================================== */
+
+/* 予測商品の一覧 */
+.prediction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* 予測商品1件分 */
+.prediction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  background: #F5F9F6;
+  border-radius: 12px;
+}
+
+/* 商品名と平均購入間隔 */
+.prediction-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.prediction-item-info strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #243E34;
+  overflow-wrap: anywhere;
+}
+
+.prediction-item-info small {
+  font-size: 11px;
+  color: #668177;
+}
+
+/* 次回購入までの日数 */
+.prediction-days {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #286D55;
+  white-space: nowrap;
+}
+
+/* iPhoneなど画面幅が狭い場合 */
+@media (max-width: 390px) {
+  .prediction-item {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .prediction-item-info strong {
+    font-size: 13px;
+  }
+
+  .prediction-days {
+    font-size: 11px;
+  }
+}
+/* 購入予測商品の追加ボタン */
+.prediction-add-button {
+  flex-shrink: 0;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #3F9D80;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.prediction-add-button:hover {
+  background: #32866C;
+}
+
+.prediction-add-button:active {
+  transform: scale(0.97);
+}
+/* ========================================
+   購入予測カード：iPhone対応
+======================================== */
+
+@media (max-width: 480px) {
+
+  /* 予測カードを縦並びにする */
+  .prediction-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  /* 商品名と購入間隔 */
+  .prediction-item-info {
+    width: 100%;
+  }
+
+  /* 購入予測日 */
+  .prediction-days {
+    align-self: flex-start;
+  }
+
+  /* 追加ボタン */
+  .prediction-add-button {
+    width: 100%;
+    min-height: 44px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+}
+/* ========================================
+   購入予測画面
+======================================== */
+
+.prediction-section {
+    width: 100%;
+}
+
+.prediction-header {
+    margin-bottom: 28px;
+}
+
+.prediction-header h1 {
+    margin: 8px 0 10px;
+    color: #203d36;
+    font-size: 28px;
+}
+
+.prediction-subtitle {
+    color: #71877d;
+    font-size: 14px;
+}
+
+/* 購入予測の説明カード */
+.prediction-summary {
+    background: #e3f3ea;
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin-bottom: 30px;
+}
+
+.prediction-summary > p:first-child {
+    color: #658a7b;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.prediction-summary h2 {
+    color: #203d36;
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.prediction-summary > p:last-child {
+    color: #49695c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* 購入予測一覧 */
+.prediction-list {
+    margin-top: 24px;
+}
+
+.prediction-list > h2 {
+    color: #203d36;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+/* 商品カード */
+.prediction-item {
+    background: #ffffff;
+    border: 1px solid #e3ebe6;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.prediction-item-info h3 {
+    color: #203d36;
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.prediction-item-info p {
+    color: #71877d;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 4px 0;
+}
+
+/* 次回購入予測日 */
+.prediction-item-info p:last-child {
+    color: #3f9d80;
+    font-weight: 600;
+}
+
+/* 購入履歴が不足している場合 */
+.prediction-empty {
+    background: #ffffff;
+    border: 1px dashed #bdd8ca;
+    border-radius: 16px;
+    padding: 24px 18px;
+    color: #71877d;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+}
+/* 購入予測の商品追加ボタン */
+.prediction-add-button {
+    background: #3f9d80;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 14px;
+    min-height: 44px;
+}
+
+.prediction-add-button:hover {
+    background: #32866c;
+}
+
+.prediction-add-button:active {
+    transform: scale(0.98);
+}
