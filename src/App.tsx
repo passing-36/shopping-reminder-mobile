@@ -5,6 +5,7 @@ type ShoppingItem = {
     id: string
     name: string
     purchased: boolean
+    purchasedAt?: string
 }
 type PurchaseHistoryItem = {
     id: string
@@ -191,7 +192,13 @@ function App() {
         setShoppingItems((currentItems) =>
             currentItems.map((item) =>
                 item.id === id
-                    ? {...item, purchased: !item.purchased}
+                    ? {
+                        ...item,
+                        purchased: !item.purchased,
+                        purchasedAt: item.purchased
+                            ? undefined
+                            : new Date().toISOString()
+                    }
                     : item
             )
         )
@@ -593,33 +600,50 @@ function App() {
                             </div>
                         )}
                         <div className="shopping-list">
-                            {shoppingItems.map((item) => (
-                                <div
-                                    className={`shopping-card ${item.purchased ? 'purchased-card' : ''}`}
-                                    key={item.id}
-                                >
-                                    <button
-                                        type="button"
-                                        className="check-circle"
-                                        onClick={() => togglePurchased(item.id)}
-                                        aria-label={`${item.name}を${item.purchased ? '未購入' : '購入済み'}にする`}
-                                        aria-pressed={item.purchased}
-                                    >
-                                        {item.purchased ? '✓' : '○'}
-                                    </button>
+                            {shoppingItems
+                                .filter((item) => {
+                                    if (!item.purchased) return true
 
-                                    <span className="item-name">
+                                    if (!item.purchasedAt) return false
+
+                                    const purchasedDate = new Date(item.purchasedAt)
+                                    if (Number.isNaN(purchasedDate.getTime())) return false
+
+                                    const today = new Date()
+
+                                    return (
+                                        purchasedDate.getFullYear() === today.getFullYear() &&
+                                        purchasedDate.getMonth() === today.getMonth() &&
+                                        purchasedDate.getDate() === today.getDate()
+                                    )
+                                })
+                                .map((item) => (
+                                    <div
+                                        className={`shopping-card ${item.purchased ? 'purchased-card' : ''}`}
+                                        key={item.id}
+                                    >
+                                        <button
+                                            type="button"
+                                            className="check-circle"
+                                            onClick={() => togglePurchased(item.id)}
+                                            aria-label={`${item.name}を${item.purchased ? '未購入' : '購入済み'}にする`}
+                                            aria-pressed={item.purchased}
+                                        >
+                                            {item.purchased ? '✓' : '○'}
+                                        </button>
+
+                                        <span className="item-name">
                   {item.name}
                 </span>
 
-                                    <button
-                                        className="delete-button"
-                                        onClick={() => deleteItem(item.id)}
-                                    >
-                                        削除
-                                    </button>
-                                </div>
-                            ))}
+                                        <button
+                                            className="delete-button"
+                                            onClick={() => deleteItem(item.id)}
+                                        >
+                                            削除
+                                        </button>
+                                    </div>
+                                ))}
                         </div>
 
                     </section>
