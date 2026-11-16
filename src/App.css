@@ -696,3 +696,12 @@ button {
 .prediction-add-button:active {
     transform: scale(0.98);
 }
+/* ========================================
+   STEP 17-1：iPhoneの入力ズーム対策
+======================================== */
+
+@media (max-width: 768px) {
+    .shopping-input {
+        font-size: 16px;
+    }
+}

@@ -560,6 +560,7 @@ function App() {
 
                         <div className="add-form">
                             <input
+                                className="shopping-input"
                                 type="text"
                                 placeholder="買うものを入力"
                                 value={newItem}
