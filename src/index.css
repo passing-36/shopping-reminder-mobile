@@ -11,15 +11,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 
-  /* 新しいカラーパレット */
-  --color-background: #F8F7F3;
-  --color-surface: #FFFFFF;
-  --color-primary: #315247;
-  --color-sage: #91AA96;
-  --color-sage-light: #E4EEE6;
-  --color-border: #DDE5DD;
-  --color-muted: #789083;
-  --color-prediction: #F0EDE6;
+  /* Ver.1.4 くすみピンク × アイボリー */
+--color-background: #FAF7F4;
+--color-surface: #FFFFFF;
+--color-primary: #69444D;
+--color-sage: #D58F9B;
+--color-sage-light: #F5DFE4;
+--color-border: #EAD5D9;
+--color-muted: #A08088;
+--color-prediction: #F8E9ED;
 
   /* 基本の文字色と背景色 */
   color: var(--color-primary);

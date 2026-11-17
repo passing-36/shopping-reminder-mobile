@@ -1,86 +1,87 @@
 .app {
-  min-height: 100dvh;
-  background: #F7F8F6;
-  color: #243E34;
+    min-height: 100dvh;
+    background: #F7F8F6;
+    color: #243E34;
 }
 
 .content {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 36px 16px 32px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 36px 16px 32px;
 }
 
 .header {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: #668177;
-  margin: 0 0 8px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #668177;
+    margin: 0 0 8px;
 }
 
 h1 {
-  font-size: 29px;
-  margin: 0;
+    font-size: 29px;
+    margin: 0;
 }
 
 h2 {
-  font-size: 17px;
-  margin: 0 0 12px;
+    font-size: 17px;
+    margin: 0 0 12px;
 }
 
 .hero {
-  background: #E4F3EA;
-  border-radius: 20px;
-  padding: 24px 20px;
-  margin-bottom: 26px;
+    background: #E4F3EA;
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin-bottom: 26px;
 }
 
 .hero h2 {
-  font-size: 21px;
+    font-size: 21px;
 }
 
 .hero p:last-child {
-  font-size: 12px;
-  margin-bottom: 0;
+    font-size: 12px;
+    margin-bottom: 0;
 }
 
 .section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
 }
 
 .section-heading span {
-  font-size: 12px;
-  color: #668177;
+    font-size: 12px;
+    color: #668177;
 }
 
 .add-form {
-  display: flex;
-  gap: 9px;
-  margin-bottom: 15px;
+    display: flex;
+    gap: 9px;
+    margin-bottom: 15px;
 }
 
 .add-form input {
-  flex: 1;
-  min-width: 0;
-  height: 44px;
-  padding: 0 12px;
-  border: 1px solid #B8CFC2;
-  border-radius: 12px;
-  background: white;
-  font-size: 16px;
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: white;
+    font-size: 16px;
 }
 
 button {
-  font-family: inherit;
-  cursor: pointer;
+    font-family: inherit;
+    cursor: pointer;
 }
+
 /* ========================================
    Ver.1.2 よく買うもの：手動登録
 ======================================== */
@@ -120,7 +121,7 @@ button {
     min-width: 0;
     height: 48px;
     padding: 0 12px;
-    border: 1px solid #b8cfc2;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     background: white;
     font-size: 16px;
@@ -131,507 +132,523 @@ button {
     padding: 0 16px;
     border: none;
     border-radius: 12px;
-    background: #4f9d83;
+    background: var(--color-sage);
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
 .add-button {
-  border: none;
-  border-radius: 12px;
-  background: #3F9D80;
-  color: white;
-  padding: 0 17px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-sage);
+    color: white;
+    padding: 0 17px;
 }
 
 .shopping-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: white;
-  padding: 14px;
-  border-radius: 14px;
-  margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 9px;
 }
 
 .check-circle {
-  color: #3F9D80;
-  font-size: 25px;
+    color: var(--color-sage);
+    font-size: 25px;
 }
 
 .item-name {
-  flex: 1;
-  font-size: 14px;
-  font-weight: bold;
+    flex: 1;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .delete-button {
-  background: #F7E6E6;
-  color: #995454;
-  border: none;
-  border-radius: 9px;
-  padding: 8px 10px;
+    background: #F7E6E6;
+    color: #995454;
+    border: none;
+    border-radius: 9px;
+    padding: 8px 10px;
 }
 
 .prediction-card {
-  background: #F0EAFB;
-  border-radius: 20px;
-  padding: 22px 18px;
-  margin: 26px 0 20px;
-  color: #624B8E;
+    background: #F0EAFB;
+    border-radius: 20px;
+    padding: 22px 18px;
+    margin: 26px 0 20px;
+    color: #624B8E;
 }
 
 .prediction-card p {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .prediction-message {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .frequent-card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px 16px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px 16px;
 }
 
 .frequent-card p {
-  font-size: 12px;
-  color: #668177;
+    font-size: 12px;
+    color: #668177;
 }
 
 .frequent-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 20px;
 }
 
 .frequent-button {
-  min-width: 0;
-  min-height: 42px;
-  border: none;
-  border-radius: 12px;
-  background: #E4F3EA;
-  color: #286D55;
-  font-size: 12px;
+    min-width: 0;
+    min-height: 42px;
+    border: none;
+    border-radius: 12px;
+    background: #E4F3EA;
+    color: #286D55;
+    font-size: 12px;
 }
 
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  gap: 8px;
-  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: #F7F8F6;
-  box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: #F7F8F6;
+    box-sizing: border-box;
 }
 
 .bottom-nav button {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  border-radius: 12px;
-  padding: 13px 4px;
-  background: #FFFFFF;
-  color: #286D55;
-  font-size: 12px;
+    flex: 1;
+    min-width: 0;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 4px;
+    background: #FFFFFF;
+    color: #286D55;
+    font-size: 12px;
 }
 
 .bottom-nav .active {
-  background: #DCEFE6;
+    background: #DCEFE6;
 }
+
 /* 購入済みチェックボタン */
 .check-circle {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  border: none;
-  border-radius: 50%;
-  background: #EDF2EF;
-  color: #3F9D80;
-  font-size: 23px;
-  cursor: pointer;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-sage-light);
+    color: var(--color-sage);
+    font-size: 23px;
+    cursor: pointer;
 }
 
 .check-circle[aria-pressed="true"] {
-  background: #3F9D80;
-  color: white;
+    background: var(--color-sage-light);
+    color: var(--color-sage);
 }
+
 /* 購入済みチェックボタン */
 .check-circle {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  border: none;
-  border-radius: 50%;
-  background: #EDF2EF;
-  color: #3F9D80;
-  font-size: 23px;
-  cursor: pointer;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-sage-light);
+    color: var(--color-sage);
+    font-size: 23px;
+    cursor: pointer;
 }
 
 /* 購入済みの場合 */
 .check-circle[aria-pressed="true"] {
-  background: #3F9D80;
-  color: white;
+    background: var(--color-sage-light);
+    color: var(--color-sage);
 }
+
 /* バックアップボタン */
 .backup-area {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 0 16px 110px;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 16px 110px;
 }
 
 .backup-button {
-  width: 100%;
-  min-height: 46px;
-  border: 1px solid #B8CFC2;
-  border-radius: 12px;
-  background: white;
-  color: #286D55;
-  font-size: 13px;
-  cursor: pointer;
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: white;
+    color: #286D55;
+    font-size: 13px;
+    cursor: pointer;
 }
+
 /* バックアップ復元ボタン */
 .restore-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 46px;
-  margin-top: 10px;
-  border: 1px solid #B8CFC2;
-  border-radius: 12px;
-  background: #E4F3EA;
-  color: #286D55;
-  font-size: 13px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: #E4F3EA;
+    color: #286D55;
+    font-size: 13px;
+    cursor: pointer;
 }
+
 /* 購入済み商品の折りたたみボタン */
 .purchased-toggle {
-  width: 100%;
-  min-height: 46px;
-  margin-top: 16px;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: #E4F3EA;
-  color: #286D55;
-  font-family: "Meiryo", sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #E4F3EA;
+    color: #286D55;
+    font-family: "Meiryo", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* 購入済み商品のカード */
 .purchased-card {
-  background: #EAF2ED;
-  margin-top: 8px;
+    background: #EAF2ED;
+    margin-top: 8px;
 }
 
 .purchased-card .item-name {
-  color: #668177;
-  text-decoration: line-through;
+    color: #668177;
+    text-decoration: line-through;
 }
+
 /* 購入履歴画面の見出し */
 .history-header {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .history-header h1 {
-  margin: 8px 0;
-  color: #243E34;
-  font-family: "Meiryo", sans-serif;
-  font-size: 26px;
-  font-weight: bold;
+    margin: 8px 0;
+    color: #243E34;
+    font-family: "Meiryo", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
 }
 
 .history-subtitle {
-  margin: 0;
-  color: #668177;
-  font-family: "Meiryo", sans-serif;
-  font-size: 12px;
-  line-height: 1.8;
+    margin: 0;
+    color: #668177;
+    font-family: "Meiryo", sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
 }
+
 /* 購入履歴のサマリーカード */
 .history-summary {
-  background: #E4F3EA;
-  border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 24px;
+    background: #E4F3EA;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 24px;
 }
 
 .history-summary-label {
-  margin: 0;
-  color: #527767;
-  font-family: "Meiryo", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.5px;
+    margin: 0;
+    color: #527767;
+    font-family: "Meiryo", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.5px;
 }
 
 .history-summary-count {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin: 12px 0;
-  color: #286D55;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 12px 0;
+    color: #286D55;
 }
 
 .history-summary-count strong {
-  font-size: 34px;
-  font-weight: bold;
+    font-size: 34px;
+    font-weight: bold;
 }
 
 .history-summary-count span {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .history-summary-description {
-  margin: 0;
-  color: #527767;
-  font-size: 12px;
+    margin: 0;
+    color: #527767;
+    font-size: 12px;
 }
+
 /* 日付ごとの購入履歴 */
 .history-day {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .history-date-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .history-date-heading h2 {
-  margin: 0;
-  font-size: 14px;
-  color: #243E34;
+    margin: 0;
+    font-size: 14px;
+    color: #243E34;
 }
 
 .history-date-heading span {
-  font-size: 12px;
-  color: #668177;
+    font-size: 12px;
+    color: #668177;
 }
 
 .history-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  margin-bottom: 8px;
-  background: #FFFFFF;
-  border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 8px;
+    background: #FFFFFF;
+    border-radius: 14px;
 }
 
 .history-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #E4F3EA;
-  color: #3F9D80;
-  font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E4F3EA;
+    color: #3F9D80;
+    font-size: 18px;
 }
 
 .history-item-info {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
 }
 
 .history-item-info strong {
-  font-size: 13px;
-  color: #243E34;
+    font-size: 13px;
+    color: #243E34;
 }
 
 .history-item-info small {
-  font-size: 11px;
-  color: #668177;
+    font-size: 11px;
+    color: #668177;
 }
 
 .history-status {
-  font-size: 11px;
-  color: #3F9D80;
+    font-size: 11px;
+    color: #3F9D80;
 }
+
 /* 購入履歴の削除ボタン */
 .history-delete-button {
-  flex-shrink: 0;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 10px;
-  background: #F8E6E6;
-  color: #A65353;
-  font-family: "Meiryo", sans-serif;
-  font-size: 12px;
-  cursor: pointer;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    background: #F8E6E6;
+    color: #A65353;
+    font-family: "Meiryo", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .history-delete-button:hover {
-  background: #F2D6D6;
+    background: #F2D6D6;
 }
+
 /* 購入操作の取り消し通知 */
 .purchase-undo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-  border-radius: 12px;
-  background: #E4F3EA;
-  color: #286D55;
-  font-family: "Meiryo", sans-serif;
-  font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background: #F5DFE4;
+    color: #69444D;
+    font-family: "Meiryo", sans-serif;
+    font-size: 12px;
 }
 
 .purchase-undo span {
-  flex: 1;
+    flex: 1;
 }
 
 .purchase-undo-button {
-  flex-shrink: 0;
-  padding: 8px 12px;
-  border: 1px solid #3F9D80;
-  border-radius: 9px;
-  background: #FFFFFF;
-  color: #286D55;
-  font-family: "Meiryo", sans-serif;
-  font-size: 12px;
-  cursor: pointer;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid #D97991;
+    color: #B85F77;
+    border-radius: 9px;
+    background: #FBECEF;
+    border: 1px solid #D97991;
+    color: #B85F77;
+    font-family: "Meiryo", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .purchase-undo-button:hover {
-  background: #D8EBE1;
+    background: #D8EBE1;
 }
+
 /* ========================================
    購入予測カード
 ======================================== */
 
 /* 予測商品の一覧 */
 .prediction-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
 }
 
 /* 予測商品1件分 */
 .prediction-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px;
-  background: #F5F9F6;
-  border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px;
+    background: #F5F9F6;
+    border-radius: 12px;
 }
 
 /* 商品名と平均購入間隔 */
 .prediction-item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
 }
 
 .prediction-item-info strong {
-  font-size: 14px;
-  font-weight: 600;
-  color: #243E34;
-  overflow-wrap: anywhere;
+    font-size: 14px;
+    font-weight: 600;
+    color: #243E34;
+    overflow-wrap: anywhere;
 }
 
 .prediction-item-info small {
-  font-size: 11px;
-  color: #668177;
+    font-size: 11px;
+    color: #668177;
 }
 
 /* 次回購入までの日数 */
 .prediction-days {
-  flex-shrink: 0;
-  font-size: 12px;
-  font-weight: 600;
-  color: #286D55;
-  white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #286D55;
+    white-space: nowrap;
 }
 
 /* iPhoneなど画面幅が狭い場合 */
 @media (max-width: 390px) {
-  .prediction-item {
-    padding: 12px;
-    gap: 8px;
-  }
+    .prediction-item {
+        padding: 12px;
+        gap: 8px;
+    }
 
-  .prediction-item-info strong {
-    font-size: 13px;
-  }
+    .prediction-item-info strong {
+        font-size: 13px;
+    }
 
-  .prediction-days {
-    font-size: 11px;
-  }
+    .prediction-days {
+        font-size: 11px;
+    }
 }
+
 /* 購入予測商品の追加ボタン */
 .prediction-add-button {
-  flex-shrink: 0;
-  padding: 9px 12px;
-  border: none;
-  border-radius: 10px;
-  background: #3F9D80;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
+    flex-shrink: 0;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 10px;
+    background: #3F9D80;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .prediction-add-button:hover {
-  background: #32866C;
+    background: #32866C;
 }
 
 .prediction-add-button:active {
-  transform: scale(0.97);
+    transform: scale(0.97);
 }
+
 /* ========================================
    購入予測カード：iPhone対応
 ======================================== */
 
 @media (max-width: 480px) {
 
-  /* 予測カードを縦並びにする */
-  .prediction-item {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
+    /* 予測カードを縦並びにする */
+    .prediction-item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
 
-  /* 商品名と購入間隔 */
-  .prediction-item-info {
-    width: 100%;
-  }
+    /* 商品名と購入間隔 */
+    .prediction-item-info {
+        width: 100%;
+    }
 
-  /* 購入予測日 */
-  .prediction-days {
-    align-self: flex-start;
-  }
+    /* 購入予測日 */
+    .prediction-days {
+        align-self: flex-start;
+    }
 
-  /* 追加ボタン */
-  .prediction-add-button {
-    width: 100%;
-    min-height: 44px;
-    font-size: 13px;
-    border-radius: 10px;
-  }
+    /* 追加ボタン */
+    .prediction-add-button {
+        width: 100%;
+        min-height: 44px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
 }
+
 /* ========================================
    購入予測画面
 ======================================== */
@@ -731,6 +748,7 @@ button {
     line-height: 1.8;
     text-align: center;
 }
+
 /* 購入予測の商品追加ボタン */
 .prediction-add-button {
     background: #3f9d80;
@@ -752,6 +770,7 @@ button {
 .prediction-add-button:active {
     transform: scale(0.98);
 }
+
 /* ========================================
    STEP 17-1：iPhoneの入力ズーム対策
 ======================================== */
@@ -761,6 +780,7 @@ button {
         font-size: 16px;
     }
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 3：基本カラーの統一
@@ -768,92 +788,97 @@ button {
 
 /* アプリ全体 */
 .app {
-  background: var(--color-background);
-  color: var(--color-primary);
+    background: var(--color-background);
+    color: var(--color-primary);
 }
 
 /* メインコンテンツ */
 .content {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 /* 見出し */
 h1,
 h2 {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 /* 小さな説明文 */
 .eyebrow,
 .section-heading span {
-  color: var(--color-muted);
+    color: var(--color-muted);
 }
 
 /* 商品追加ボタン */
 .add-button {
-  background: var(--color-primary);
+  border: none;
+  border-radius: 12px;
+  background: #D87591;
   color: #FFFFFF;
+  padding: 0 17px;
 }
 
 /* よく買うもの */
 .frequent-card {
-  background: var(--color-surface);
+    background: var(--color-surface);
 }
 
 .frequent-button {
-  background: var(--color-sage-light);
-  color: var(--color-primary);
+    background: var(--color-sage-light);
+    color: var(--color-primary);
 }
 
 /* 購入予測カード */
 .prediction-card {
-  background: var(--color-prediction);
-  color: #514C43;
+    background: var(--color-prediction);
+    color: #514C43;
 }
 
 /* 下部ナビゲーション */
 .bottom-nav {
-  background: var(--color-background);
+    background: var(--color-background);
 }
 
 .bottom-nav button {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .bottom-nav .active {
-  background: var(--color-sage-light);
+    background: var(--color-sage-light);
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 4：コンパクトヘッダー
 ======================================== */
 
 .hero {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 
-  padding: 16px 0 20px;
-  margin: 0;
+    padding: 16px 0 20px;
+    margin: 0;
 }
 
 .hero .eyebrow {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin: 0 0 8px;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0 0 8px;
 }
 
 .hero h1 {
-  color: var(--color-primary);
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-  margin: 0;
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    margin: 0;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 5：買い物リストをライン型に
@@ -861,38 +886,39 @@ h2 {
 
 /* 商品一覧全体 */
 .shopping-list {
-  background: #FFFFFF;
-  border-radius: 16px;
-  padding: 0 16px;
-  overflow: hidden;
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 0 16px;
+    overflow: hidden;
 }
 
 /* 商品1件分 */
 .shopping-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-  background: transparent;
-  border-radius: 0;
-  margin-bottom: 0;
-  padding: 16px 0;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 16px 0;
 
-  border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 /* 最後の商品は区切り線を消す */
 .shopping-card:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 /* 商品名 */
 .item-name {
-  flex: 1;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--color-primary);
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-primary);
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 6：よく買うもの
@@ -900,66 +926,67 @@ h2 {
 
 /* よく買うもの全体 */
 .frequent-card {
-  background: var(--color-surface);
-  border-radius: 18px;
-  padding: 24px 20px;
-  box-shadow: none;
+    background: var(--color-surface);
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-shadow: none;
 }
 
 /* 見出し */
 .frequent-card h2 {
-  color: var(--color-primary);
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 8px;
+    color: var(--color-primary);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 /* 説明文 */
 .frequent-card > p {
-  color: var(--color-muted);
-  font-size: 13px;
-  line-height: 1.6;
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 /* ボタンを並べるエリア */
 .frequent-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 20px;
 }
 
 /* 商品追加ボタン */
 .frequent-button {
-  background: var(--color-sage-light);
-  color: var(--color-primary);
-  border: 1px solid transparent;
-  border-radius: 12px;
-  min-height: 46px;
-  padding: 10px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    background: var(--color-sage-light);
+    color: var(--color-primary);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 /* マウスを乗せたとき */
 @media (hover: hover) {
-  .frequent-button:hover {
-    background: #D4E5D8;
-  }
+    .frequent-button:hover {
+        background: #D4E5D8;
+    }
 }
 
 /* ボタンを押したとき */
 .frequent-button:active {
-  background: #C8DCCC;
+    background: #C8DCCC;
 }
 
 /* キーボード操作時 */
 .frequent-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 7：手動登録商品のデザイン
@@ -967,53 +994,54 @@ h2 {
 
 /* 手動登録セクションの見出し */
 .frequent-card h3 {
-  color: var(--color-primary);
-  font-size: 15px;
-  font-weight: 600;
-  margin-top: 28px;
-  margin-bottom: 14px;
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 14px;
 }
 
 /* 手動登録した商品 */
 .manual-frequent-item {
-  display: flex;
-  align-items: stretch;
-  gap: 4px;
-  min-width: 0;
-  background: var(--color-sage-light);
-  border-radius: 12px;
-  padding: 4px;
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    min-width: 0;
+    background: var(--color-sage-light);
+    border-radius: 12px;
+    padding: 4px;
 }
 
 /* 商品追加ボタン */
 .manual-frequent-item .frequent-button {
-  flex: 1;
-  min-width: 0;
-  padding: 10px 4px;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  overflow-wrap: anywhere;
+    flex: 1;
+    min-width: 0;
+    padding: 10px 4px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    overflow-wrap: anywhere;
 }
 
 /* 削除ボタン */
 .manual-delete-button {
-  flex-shrink: 0;
-  width: 36px;
-  min-height: 38px;
-  border: none;
-  border-radius: 8px;
-  background: #FFFFFF;
-  color: #879B8C;
-  font-size: 18px;
-  cursor: pointer;
+    flex-shrink: 0;
+    width: 36px;
+    min-height: 38px;
+    border: none;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #879B8C;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 /* キーボード操作時 */
 .manual-delete-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 7-5：手動登録フォーム
@@ -1021,157 +1049,160 @@ h2 {
 
 /* 入力欄と登録ボタン */
 .manual-frequent-form {
-  display: flex;
-  align-items: stretch;
-  gap: 10px;
-  width: 100%;
-  margin-top: 16px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    margin-top: 16px;
 }
 
 /* 商品名の入力欄 */
 .manual-frequent-form input {
-  flex: 1;
-  min-width: 0;
-  height: 46px;
-  padding: 0 14px;
-  border: 1px solid #D6E3DA;
-  border-radius: 12px;
-  background: #FFFFFF;
-  color: var(--color-primary);
-  font-size: 16px;
-  outline: none;
+    flex: 1;
+    min-width: 0;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #D6E3DA;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: var(--color-primary);
+    font-size: 16px;
+    outline: none;
 }
 
 /* 入力中の枠線 */
 .manual-frequent-form input:focus {
-  border-color: #86AB96;
-  box-shadow: 0 0 0 2px rgba(134, 171, 150, 0.12);
+    border-color: #86AB96;
+    box-shadow: 0 0 0 2px rgba(134, 171, 150, 0.12);
 }
 
 /* プレースホルダー */
 .manual-frequent-form input::placeholder {
-  color: #91A096;
+    color: #91A096;
 }
 
 /* 登録ボタン */
 .manual-frequent-form button {
-  flex-shrink: 0;
-  min-height: 46px;
-  padding: 0 18px;
-  border: none;
-  border-radius: 12px;
-  background: var(--color-primary);
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
+    flex-shrink: 0;
+    min-height: 46px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 /* ボタンを押したとき */
 .manual-frequent-form button:active {
-  opacity: 0.85;
+    opacity: 0.85;
 }
 
 /* キーボード操作時 */
 .manual-frequent-form button:focus-visible {
-  outline: 2px solid #86AB96;
-  outline-offset: 2px;
+    outline: 2px solid #86AB96;
+    outline-offset: 2px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 8：下部ナビゲーション
 ======================================== */
 
 .bottom-nav {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  padding: 10px 12px;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  background: var(--color-background);
-  border-top: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 10px 12px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    background: var(--color-background);
+    border-top: 1px solid var(--color-border);
 }
 
 /* ナビゲーションボタン */
 .bottom-nav button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 
-  min-width: 0;
-  min-height: 64px;
-  padding: 10px 4px;
+    min-width: 0;
+    min-height: 64px;
+    padding: 10px 4px;
 
-  border: none;
-  border-radius: 14px;
-  background: #FFFFFF;
-  color: var(--color-muted);
+    border: none;
+    border-radius: 14px;
+    background: #FFFFFF;
+    color: var(--color-muted);
 
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 /* アイコン */
 .bottom-nav .nav-icon {
-  font-size: 23px;
-  line-height: 1;
-  font-weight: 400;
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 400;
 }
 
 /* 選択中のタブ */
 .bottom-nav button.active {
-  background: var(--color-sage-light);
-  color: var(--color-primary);
-  font-weight: 600;
+    background: var(--color-sage-light);
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 /* タップしたとき */
 .bottom-nav button:active {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* キーボード操作時 */
 .bottom-nav button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 9：購入履歴ヘッダー
 ======================================== */
 
 .history-header {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 12px 0 24px;
-  margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 12px 0 24px;
+    margin: 0;
 }
 
 .history-header .eyebrow {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
 }
 
 .history-header h1 {
-  color: var(--color-primary);
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px;
 }
 
 .history-subtitle {
-  color: var(--color-muted);
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 9-4：購入件数カード
@@ -1179,58 +1210,59 @@ h2 {
 
 /* 購入件数カード全体 */
 .history-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
 
-  background: var(--color-sage-light);
-  border: none;
-  border-radius: 16px;
-  box-shadow: none;
-  padding: 20px;
-  margin-bottom: 24px;
+    background: var(--color-sage-light);
+    border: none;
+    border-radius: 16px;
+    box-shadow: none;
+    padding: 20px;
+    margin-bottom: 24px;
 }
 
 /* 英語の小見出し */
 .history-summary-label {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  margin: 0;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin: 0;
 }
 
 /* 購入件数 */
 .history-summary-count {
-  display: flex;
-  align-items: baseline;
-  gap: 5px;
-  color: var(--color-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    color: var(--color-primary);
 }
 
 /* 件数の数字 */
 .history-summary-count strong {
-  color: var(--color-primary);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
+    color: var(--color-primary);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
 }
 
 /* 「件」の文字 */
 .history-summary-count span {
-  color: var(--color-primary);
-  font-size: 13px;
+    color: var(--color-primary);
+    font-size: 13px;
 }
 
 /* 説明文 */
 .history-summary-description {
-  color: var(--color-muted);
-  font-size: 12px;
-  margin: 0;
-  flex-basis: 100%;
+    color: var(--color-muted);
+    font-size: 12px;
+    margin: 0;
+    flex-basis: 100%;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 9-5：購入履歴をライン型に
@@ -1238,224 +1270,228 @@ h2 {
 
 /* 購入履歴全体 */
 .history-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 /* 日付ごとのグループ */
 .history-day {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
 }
 
 /* 日付見出し */
 .history-date-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 0 4px;
 }
 
 .history-date-heading h2 {
-  color: var(--color-primary);
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0;
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .history-date-heading span {
-  color: var(--color-muted);
-  font-size: 12px;
+    color: var(--color-muted);
+    font-size: 12px;
 }
 
 /* 商品ごとのライン */
 .history-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-  background: #FFFFFF;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-  padding: 16px;
+    background: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 16px;
 }
 
 /* 日付グループ内の最初の商品 */
 .history-date-heading + .history-item {
-  border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 0 0;
 }
 
 /* 日付グループ内の最後の商品 */
 .history-item:last-child {
-  border-bottom: none;
-  border-radius: 0 0 16px 16px;
+    border-bottom: none;
+    border-radius: 0 0 16px 16px;
 }
 
 /* 商品が1件だけの場合 */
 .history-date-heading + .history-item:last-child {
-  border-radius: 16px;
+    border-radius: 16px;
 }
 
 /* チェックアイコン */
 .history-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-sage-light);
-  color: var(--color-primary);
-  font-size: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-sage-light);
+    color: var(--color-primary);
+    font-size: 16px;
 }
 
 /* 商品名・購入時刻 */
 .history-item-info {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
 }
 
 .history-item-info strong {
-  color: var(--color-primary);
-  font-size: 14px;
-  font-weight: 500;
-  overflow-wrap: anywhere;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
 }
 
 .history-item-info small {
-  color: var(--color-muted);
-  font-size: 12px;
+    color: var(--color-muted);
+    font-size: 12px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 9-7：購入履歴の削除ボタン
 ======================================== */
 
 .history-delete-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 
-  min-height: 40px;
-  padding: 0 14px;
+    min-height: 40px;
+    padding: 0 14px;
 
-  background: #F3F1EE;
-  color: #8B8882;
-  border: none;
-  border-radius: 10px;
+    background: #F3F1EE;
+    color: #8B8882;
+    border: none;
+    border-radius: 10px;
 
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
 
-  transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 /* マウスを乗せたとき */
 @media (hover: hover) {
-  .history-delete-button:hover {
-    background: #E8E4DF;
-  }
+    .history-delete-button:hover {
+        background: #E8E4DF;
+    }
 }
 
 /* タップしたとき */
 .history-delete-button:active {
-  background: #DDD8D1;
+    background: #DDD8D1;
 }
 
 /* キーボード操作時 */
 .history-delete-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 10-2：購入予測ヘッダー
 ======================================== */
 
 .prediction-header {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 12px 0 24px;
-  margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 12px 0 24px;
+    margin: 0;
 }
 
 .prediction-header .eyebrow {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
 }
 
 .prediction-header h1 {
-  color: var(--color-primary);
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px;
 }
 
 .prediction-subtitle {
-  color: var(--color-muted);
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 10-3：購入予測の概要カード
 ======================================== */
 
 .prediction-summary {
-  background: var(--color-sage-light);
-  border: none;
-  border-radius: 16px;
-  box-shadow: none;
-  padding: 22px 20px;
-  margin-bottom: 24px;
+    background: var(--color-sage-light);
+    border: none;
+    border-radius: 16px;
+    box-shadow: none;
+    padding: 22px 20px;
+    margin-bottom: 24px;
 }
 
 /* 英語の小見出し */
 .prediction-summary > p:first-child {
-  color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  margin: 0 0 10px;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin: 0 0 10px;
 }
 
 /* カードのタイトル */
 .prediction-summary h2 {
-  color: var(--color-primary);
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0 0 10px;
+    color: var(--color-primary);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 10px;
 }
 
 /* 説明文 */
 .prediction-summary > p:last-child {
-  color: #647D70;
-  font-size: 13px;
-  line-height: 1.7;
-  margin: 0;
+    color: #647D70;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 10-4：購入予測の商品一覧
@@ -1463,128 +1499,254 @@ h2 {
 
 /* 予測一覧全体 */
 .prediction-list {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin-top: 24px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 24px;
 }
 
 /* 一覧の見出し */
 .prediction-list > h2 {
-  color: var(--color-primary);
-  font-size: 17px;
-  font-weight: 600;
-  margin: 0 0 16px;
+    color: var(--color-primary);
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 16px;
 }
 
 /* 予測商品 */
 .prediction-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-  background: #FFFFFF;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-  padding: 18px 16px;
+    background: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 18px 16px;
 }
 
 /* 最初の商品 */
 .prediction-item:first-of-type {
-  border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 0 0;
 }
 
 /* 最後の商品 */
 .prediction-item:last-child {
-  border-bottom: none;
-  border-radius: 0 0 16px 16px;
+    border-bottom: none;
+    border-radius: 0 0 16px 16px;
 }
 
 /* 商品が1件の場合 */
 .prediction-item:first-of-type:last-child {
-  border-radius: 16px;
+    border-radius: 16px;
 }
 
 /* 商品情報 */
 .prediction-item-info {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
 }
 
 /* 商品名 */
 .prediction-item-info h3 {
-  color: var(--color-primary);
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0;
-  overflow-wrap: anywhere;
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    overflow-wrap: anywhere;
 }
 
 /* 購入間隔・次回予測日 */
 .prediction-item-info p {
-  color: var(--color-muted);
-  font-size: 12px;
-  line-height: 1.6;
-  margin: 0;
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* 予測商品がない場合 */
 .prediction-empty {
-  background: #FFFFFF;
-  color: var(--color-muted);
-  border-radius: 16px;
-  padding: 24px 20px;
-  font-size: 13px;
-  line-height: 1.8;
+    background: #FFFFFF;
+    color: var(--color-muted);
+    border-radius: 16px;
+    padding: 24px 20px;
+    font-size: 13px;
+    line-height: 1.8;
 }
+
 /* ========================================
    Ver.1.3 UIリニューアル
    STEP 10-5：購入予測の追加ボタン
 ======================================== */
 
 .prediction-add-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 
-  min-height: 44px;
-  padding: 10px 16px;
+    min-height: 44px;
+    padding: 10px 16px;
 
-  background: var(--color-sage-light);
-  color: var(--color-primary);
-  border: 1px solid transparent;
-  border-radius: 12px;
+    background: var(--color-sage-light);
+    color: var(--color-primary);
+    border: 1px solid transparent;
+    border-radius: 12px;
 
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
-  cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
 
-  transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 /* マウスを乗せたとき */
 @media (hover: hover) {
-  .prediction-add-button:hover {
-    background: #D4E5D8;
-  }
+    .prediction-add-button:hover {
+        background: #D4E5D8;
+    }
 }
 
 /* タップしたとき */
 .prediction-add-button:active {
-  background: #C8DCCC;
+    background: #C8DCCC;
 }
 
 /* キーボード操作時 */
 .prediction-add-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   Ver.1.4 こなつちゃんの配置
+======================================== */
+
+/* タイトルとこなつちゃんを横並びにする */
+.hero-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* こなつちゃんの画像 */
+.konatsu-image {
+    width: 110px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* iPhoneなどの小さい画面 */
+@media (max-width: 480px) {
+    .konatsu-image {
+        width: 95px;
+    }
+
+    .hero-title h1 {
+        font-size: 27px;
+    }
+}
+
+/* Ver.1.4 登録ボタンのカラー調整 */
+.manual-frequent-form button {
+    background: #D97991;
+    color: #FFFFFF;
+}
+
+/* Ver.1.4 購入予測ボタン */
+.prediction-add-button {
+    background: #D97991;
+    color: #FFFFFF;
+}
+
+.prediction-add-button:hover {
+    background: #C96B83;
+}
+
+/* ========================================
+   Ver.1.4 入力欄のカラー統一
+======================================== */
+
+/* 買い物リスト・よく買う商品の入力欄 */
+.add-form input,
+.manual-frequent-form input {
+    border: 1px solid #EAD5D9;
+    background: #FFFFFF;
+}
+
+/* 入力欄をタップしたとき */
+.add-form input:focus,
+.manual-frequent-form input:focus {
+    border-color: #D97991;
+    outline: 2px solid #F5DFE4;
+    outline-offset: 1px;
+}
+
+/* ========================================
+   Ver.1.4 バックアップボタン
+======================================== */
+
+/* データをバックアップ */
+.backup-button {
+    background: #FFFFFF;
+    border: 1px solid #EAD5D9;
+    color: #B85F77;
+}
+
+/* バックアップから復元 */
+.restore-button {
+    background: #F5DFE4;
+    border: 1px solid #EAD5D9;
+    color: #B85F77;
+}
+
+/* ========================================
+   Ver.1.4 購入予測の空表示
+======================================== */
+
+.prediction-empty {
+  background: #FFFFFF;
+  border: 1px dashed #EAD5D9;
+  color: #A87983;
+}
+/* ========================================
+   Ver.1.4 買い物リストの折りたたみボタン
+======================================== */
+
+.show-more-button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 12px 16px;
+
+  background: #F5E0E6;
+  color: #D87591;
+
+  border: 1px solid #EBC9D3;
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.show-more-button:hover {
+  background: #EFD3DC;
+}
+
+.show-more-button:active {
+  background: #E8C4CF;
 }

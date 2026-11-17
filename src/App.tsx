@@ -26,6 +26,7 @@ type PurchasePrediction = {
 }
 
 function App() {
+    const [showAllItems, setShowAllItems] = useState(false)
     const [shoppingItems, setShoppingItems] = useState<ShoppingItem[]>(() => {
         // ブラウザに保存されているデータを取得
         const savedData = localStorage.getItem('shoppingItems')
@@ -240,6 +241,7 @@ function App() {
         .filter(([, count]) => count >= 3)
         .sort((a, b) => b[1] - a[1])
         .map(([name]) => name)
+
     // 購入状態を切り替え、購入履歴を記録する
     const togglePurchased = (id: string) => {
         const targetItem = shoppingItems.find(
@@ -285,8 +287,31 @@ function App() {
                     itemName: targetItem.name
                 })
             } else {
-                // 履歴を追加していない場合は取り消し情報をクリア
-                setLastPurchaseAction(null)
+                // 今日すでに購入履歴がある場合も通知を表示
+                setLastPurchaseAction({
+                    itemId: targetItem.id,
+                    historyId: '',
+                    itemName: targetItem.name
+                })
+            }
+        }
+        if (targetItem.purchased) {
+            // 今日の同じ商品の購入履歴を1件だけ削除する
+            const today = new Date().toLocaleDateString('sv-SE')
+
+            const historyToDelete = [...purchaseHistory]
+                .reverse()
+                .find((item) => {
+                    const purchaseDate = new Date(item.purchasedAt)
+                        .toLocaleDateString('sv-SE')
+
+                    return item.name === targetItem.name && purchaseDate === today
+                })
+
+            if (historyToDelete) {
+                setPurchaseHistory((currentHistory) =>
+                    currentHistory.filter((item) => item.id !== historyToDelete.id)
+                )
             }
         }
         // 購入済みを手動で解除した場合は取り消し情報を消す
@@ -337,16 +362,18 @@ function App() {
             (item) => item.id === itemId
         )
 
-        if (!historyExists || !targetItem || !targetItem.purchased) {
+        if (!targetItem || !targetItem.purchased || (historyId !== '' && !historyExists)) {
             setLastPurchaseAction(null)
             alert('この購入操作は取り消せません')
             return
         }
 
         // 今回の購入履歴だけ削除
-        setPurchaseHistory((currentHistory) =>
-            currentHistory.filter((item) => item.id !== historyId)
-        )
+        if (historyId !== '') {
+            setPurchaseHistory((currentHistory) =>
+                currentHistory.filter((item) => item.id !== historyId)
+            )
+        }
 
         // 商品を未購入に戻す
         setShoppingItems((currentItems) =>
@@ -650,6 +677,22 @@ function App() {
             )
         }
     )
+    const visibleShoppingItems = shoppingItems.filter((item) => {
+        if (!item.purchased) return true
+
+        if (!item.purchasedAt) return false
+
+        const purchasedDate = new Date(item.purchasedAt)
+        if (Number.isNaN(purchasedDate.getTime())) return false
+
+        const today = new Date()
+
+        return (
+            purchasedDate.getFullYear() === today.getFullYear() &&
+            purchasedDate.getMonth() === today.getMonth() &&
+            purchasedDate.getDate() === today.getDate()
+        )
+    })
     return (
         <div className="app">
             {activeTab === 'home' && (
@@ -657,7 +700,18 @@ function App() {
 
                     <section className="hero">
                         <p className="eyebrow">SHOPPING LIST</p>
-                        <h1>お買い物メモ</h1>
+
+                        <div className="hero-title">
+                            <div>
+                                <h1>お買い物メモ</h1>
+                            </div>
+
+                            <img
+                                src={`${import.meta.env.BASE_URL}konatsu-shopping.png`}
+                                alt="お買い物バッグを持ったこなつちゃん"
+                                className="konatsu-image"
+                            />
+                        </div>
                     </section>
 
                     <section className="shopping-section">
@@ -718,6 +772,7 @@ function App() {
                                         purchasedDate.getDate() === today.getDate()
                                     )
                                 })
+                                .slice(0, showAllItems ? undefined : 3)
                                 .map((item) => (
                                     <div
                                         className={`shopping-card ${item.purchased ? 'purchased-card' : ''}`}
@@ -746,6 +801,17 @@ function App() {
                                     </div>
                                 ))}
                         </div>
+                        {visibleShoppingItems.length > 3 && (
+                            <button
+                                type="button"
+                                className="show-more-button"
+                                onClick={() => setShowAllItems(!showAllItems)}
+                            >
+                                {showAllItems
+                                    ? '▲ 閉じる'
+                                    : `▼ もっと見る（残り${visibleShoppingItems.length - 3}件）`}
+                            </button>
+                        )}
 
                     </section>
 
