@@ -27,6 +27,7 @@ type PurchasePrediction = {
 
 function App() {
     const [showAllItems, setShowAllItems] = useState(false)
+    const [historySearch, setHistorySearch] = useState('')
     const [shoppingItems, setShoppingItems] = useState<ShoppingItem[]>(() => {
         // ブラウザに保存されているデータを取得
         const savedData = localStorage.getItem('shoppingItems')
@@ -575,8 +576,12 @@ function App() {
     const unpurchasedItems = shoppingItems.filter(
         (item) => !item.purchased
     )
+    // 検索文字に一致する購入履歴を抽出
+    const filteredHistory = purchaseHistory.filter((item) =>
+        item.name.toLowerCase().includes(historySearch.trim().toLowerCase())
+    )
     // 購入履歴を日付ごとに分類する
-    const groupedHistory = [...purchaseHistory]
+    const groupedHistory = [...filteredHistory]
         .sort(
             (a, b) =>
                 new Date(b.purchasedAt).getTime() -
@@ -596,6 +601,7 @@ function App() {
             },
             {}
         )
+
     // 購入履歴から平均購入間隔を計算する
     const purchasePredictions: PurchasePrediction[] = []
 
@@ -794,9 +800,10 @@ function App() {
                             </div>
                         )}
                         <div className="shopping-list">
-                            {visibleShoppingItems
+                            {[...visibleShoppingItems]
+                                .sort((a, b) => Number(a.purchased) - Number(b.purchased))
                                 .slice(0, showAllItems ? undefined : 3)
-                                .map((item) => (
+                                .map((item: ShoppingItem) => (
                                     <div
                                         className={`shopping-card ${item.purchased ? 'purchased-card' : ''}`}
                                         key={item.id}
@@ -1017,139 +1024,181 @@ function App() {
                         {purchaseHistory.length === 0 ? (
                             <p>まだ購入履歴はありません。</p>
                         ) : (
-                            <div className="history-list">
-                                {Object.entries(groupedHistory).map(([date, items]) => (
-                                    <div className="history-day" key={date}>
-                                        <div className="history-date-heading">
-                                            <h2>
-                                                {new Date(`${date}T00:00:00`).toLocaleDateString(
-                                                    'ja-JP',
-                                                    {
-                                                        year: 'numeric',
-                                                        month: 'long',
-                                                        day: 'numeric',
-                                                        weekday: 'short'
-                                                    }
-                                                )}
-                                            </h2>
-                                            <span>{items.length}件</span>
-                                        </div>
+                            <>
+                            {/* 購入履歴の検索ボックス */}
+                                <div className="history-search">
+                                    <input
+                                        type="search"
+                                        className="history-search-input"
+                                        placeholder="商品名で検索（例：牛乳）"
+                                        value={historySearch}
+                                        onChange={(e) => setHistorySearch(e.target.value)}
+                                        aria-label="購入履歴を商品名で検索"
+                                    />
 
-                                        {items.map((item) => (
-                                            <div className="history-item" key={item.id}>
-                                                <span className="history-check">✓</span>
-
-                                                <div className="history-item-info">
-                                                    <strong>{item.name}</strong>
-                                                    <small>
-                                                        {new Date(item.purchasedAt).toLocaleTimeString(
+                                    {historySearch !== '' && (
+                                        <button
+                                            type="button"
+                                            className="history-search-clear"
+                                            onClick={() => setHistorySearch('')}
+                                            aria-label="検索文字を消す"
+                                        >
+                                            ×
+                                        </button>
+                                    )}
+                                </div>
+                                {/* 検索結果の件数 */}
+                                {historySearch.trim() !== '' && (
+                                    <p className="history-search-count">
+                                        検索結果：{filteredHistory.length}件
+                                    </p>
+                                )}
+                                {/* 検索結果が0件の場合の案内 */}
+                                {historySearch.trim() !== '' && filteredHistory.length === 0 && (
+                                    <div className="history-search-empty">
+                                        <span className="history-search-empty-icon">♡</span>
+                                        <p>該当する購入履歴がありません</p>
+                                        <small>別の商品名で検索してみてね ♡</small>
+                                    </div>
+                                )}
+                                <div className="history-list">
+                                    {Object.entries(groupedHistory).map(([date, items]) => (
+                                            <div className="history-day" key={date}>
+                                                <div className="history-date-heading">
+                                                    <h2>
+                                                        {new Date(`${date}T00:00:00`).toLocaleDateString(
                                                             'ja-JP',
                                                             {
-                                                                hour: '2-digit',
-                                                                minute: '2-digit'
+                                                                year: 'numeric',
+                                                                month: 'long',
+                                                                day: 'numeric',
+                                                                weekday: 'short'
                                                             }
                                                         )}
-                                                    </small>
+                                                    </h2>
+                                                    <span>{items.length}件</span>
                                                 </div>
 
-                                                <button
-                                                    type="button"
-                                                    className="history-delete-button"
-                                                    onClick={() => deleteHistoryItem(item.id)}
-                                                    aria-label={`${item.name}の購入履歴を削除`}
-                                                >
-                                                    <svg
-                                                        width="20"
-                                                        height="20"
-                                                        viewBox="0 0 24 24"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        strokeWidth="1.8"
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path d="M3 6h18"/>
-                                                        <path d="M8 6V4h8v2"/>
-                                                        <path d="M19 6l-1 14H6L5 6"/>
-                                                        <path d="M10 10v7"/>
-                                                        <path d="M14 10v7"/>
-                                                    </svg>
-                                                </button>
+                                                {items.map((item) => (
+                                                    <div className="history-item" key={item.id}>
+                                                        <span className="history-check">✓</span>
+
+                                                        <div className="history-item-info">
+                                                            <strong>{item.name}</strong>
+                                                            <small>
+                                                                {new Date(item.purchasedAt).toLocaleTimeString(
+                                                                    'ja-JP',
+                                                                    {
+                                                                        hour: '2-digit',
+                                                                        minute: '2-digit'
+                                                                    }
+                                                                )}
+                                                            </small>
+                                                        </div>
+
+                                                        <button
+                                                            type="button"
+                                                            className="history-delete-button"
+                                                            onClick={() => deleteHistoryItem(item.id)}
+                                                            aria-label={`${item.name}の購入履歴を削除`}
+                                                        >
+                                                            <svg
+                                                                width="20"
+                                                                height="20"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="1.8"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                aria-hidden="true"
+                                                            >
+                                                                <path d="M3 6h18"/>
+                                                                <path d="M8 6V4h8v2"/>
+                                                                <path d="M19 6l-1 14H6L5 6"/>
+                                                                <path d="M10 10v7"/>
+                                                                <path d="M14 10v7"/>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                ))}
                                             </div>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </>
                         )}
                     </section>
                 </main>
             )}
-            {/* 購入予測画面 */}
-            {activeTab === 'prediction' && (
-                <main className="content">
-                    <section className="prediction-section">
-                        <header className="prediction-header">
-                            <p className="eyebrow">SHOPPING PREDICTION</p>
-                            <h1>購入予測</h1>
-                            <p className="prediction-subtitle">
-                                いつものお買いものを、もっと便利に。
-                            </p>
-                        </header>
-
-                        <div className="prediction-summary">
-                            <p>SHOPPING PREDICTION</p>
-                            <h2>次のお買いものを予測</h2>
-                            <p>
-                                過去の購入履歴から、次に必要になりそうな商品をお知らせします。
-                            </p>
-                        </div>
-                        {/* 購入予測の商品一覧 */}
-                        <div className="prediction-list">
-                            <h2>購入周期が分かっている商品</h2>
-
-                            {purchasePredictions.length === 0 ? (
-                                <p className="prediction-empty">
-                                    まだ購入予測できる商品はありません。
-                                    異なる日に2回以上購入すると、
-                                    予測できるようになります。
+            {/* 購入予測画面 */
+            }
+            {
+                activeTab === 'prediction' && (
+                    <main className="content">
+                        <section className="prediction-section">
+                            <header className="prediction-header">
+                                <p className="eyebrow">SHOPPING PREDICTION</p>
+                                <h1>購入予測</h1>
+                                <p className="prediction-subtitle">
+                                    いつものお買いものを、もっと便利に。
                                 </p>
-                            ) : (
-                                purchasePredictions.map((prediction) => (
-                                    <div
-                                        className="prediction-item"
-                                        key={prediction.name}
-                                    >
-                                        <div className="prediction-item-info">
-                                            <h3>{prediction.name}</h3>
+                            </header>
 
-                                            <p>
-                                                平均約
-                                                {Math.round(prediction.averageIntervalDays)}
-                                                日ごとに購入
-                                            </p>
+                            <div className="prediction-summary">
+                                <p>SHOPPING PREDICTION</p>
+                                <h2>次のお買いものを予測</h2>
+                                <p>
+                                    過去の購入履歴から、次に必要になりそうな商品をお知らせします。
+                                </p>
+                            </div>
+                            {/* 購入予測の商品一覧 */}
+                            <div className="prediction-list">
+                                <h2>購入周期が分かっている商品</h2>
 
-                                            <p>
-                                                次回購入予測：
-                                                {new Date(
-                                                    prediction.nextPurchaseAt
-                                                ).toLocaleDateString('ja-JP')}
-                                            </p>
-                                        </div>
-                                        <button
-                                            type="button"
-                                            className="prediction-add-button"
-                                            onClick={() => addFrequentItem(prediction.name)}
+                                {purchasePredictions.length === 0 ? (
+                                    <p className="prediction-empty">
+                                        まだ購入予測できる商品はありません。
+                                        異なる日に2回以上購入すると、
+                                        予測できるようになります。
+                                    </p>
+                                ) : (
+                                    purchasePredictions.map((prediction) => (
+                                        <div
+                                            className="prediction-item"
+                                            key={prediction.name}
                                         >
-                                            ＋ 追加
-                                        </button>
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    </section>
-                </main>
-            )}
+                                            <div className="prediction-item-info">
+                                                <h3>{prediction.name}</h3>
+
+                                                <p>
+                                                    平均約
+                                                    {Math.round(prediction.averageIntervalDays)}
+                                                    日ごとに購入
+                                                </p>
+
+                                                <p>
+                                                    次回購入予測：
+                                                    {new Date(
+                                                        prediction.nextPurchaseAt
+                                                    ).toLocaleDateString('ja-JP')}
+                                                </p>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                className="prediction-add-button"
+                                                onClick={() => addFrequentItem(prediction.name)}
+                                            >
+                                                ＋ 追加
+                                            </button>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </section>
+                    </main>
+                )
+            }
             <div className="backup-area">
                 <button
                     type="button"

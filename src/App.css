@@ -2052,3 +2052,120 @@ h2 {
   transform: scale(0.88);
   background: #F3D8E1;
 }
+/* ========================================
+   Ver.1.8 購入履歴の検索ボックス
+======================================== */
+
+.history-search {
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+.history-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 18px;
+
+  background: #ffffff;
+  border: 1.5px solid #ebcdd6;
+  border-radius: 16px;
+
+  color: #704a55;
+  font-size: 16px;
+  font-family: inherit;
+
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.history-search-input::placeholder {
+  color: #b79ba4;
+}
+
+.history-search-input:focus {
+  border-color: #d97898;
+  box-shadow: 0 0 0 3px rgba(217, 120, 152, 0.12);
+}
+/* Ver.1.8 検索結果が0件の案内 */
+
+.history-search-empty {
+  padding: 32px 16px;
+  margin-bottom: 20px;
+  background: #fff0f4;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.history-search-empty-icon {
+  display: block;
+  margin-bottom: 12px;
+  color: #c77c95;
+  font-size: 32px;
+}
+
+.history-search-empty p {
+  margin: 0 0 8px;
+  color: #704a55;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.history-search-empty small {
+  color: #a77d89;
+  font-size: 12px;
+}
+/* Ver.1.8 検索結果の件数 */
+
+.history-search-count {
+  margin: -8px 0 20px;
+  padding-left: 4px;
+  color: #a77d89;
+  font-size: 13px;
+  font-weight: 500;
+}
+/* ========================================
+   Ver.1.8 検索クリアボタン
+======================================== */
+
+.history-search {
+  position: relative;
+}
+
+.history-search-input {
+  padding-right: 54px;
+}
+
+/* Safari標準のクリアボタンを非表示 */
+.history-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.history-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+  background: #f5dfe5;
+  color: #c77c95;
+
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.history-search-clear:active {
+  background: #ebcdd6;
+  transform: translateY(-50%) scale(0.94);
+}
