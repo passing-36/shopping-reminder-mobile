@@ -152,6 +152,8 @@ function App() {
     // 最後に購入済みにした操作を記憶する
     const [lastPurchaseAction, setLastPurchaseAction] =
         useState<LastPurchaseAction | null>(null)
+    const [showKonatsuModal, setShowKonatsuModal] =
+        useState(false)
     // 購入履歴が変更されたら自動保存する
     useEffect(() => {
         localStorage.setItem(
@@ -339,6 +341,15 @@ function App() {
         // 購入済みを手動で解除した場合は取り消し情報を消す
         if (targetItem.purchased && lastPurchaseAction?.itemId === id) {
             setLastPurchaseAction(null)
+        }
+        // 最後の未購入商品を購入したか確認する
+        const isLastUnpurchasedItem =
+            !targetItem.purchased &&
+            shoppingItems.filter((item) => !item.purchased).length === 1
+
+        // 全商品を購入した瞬間にこなつを表示する
+        if (isLastUnpurchasedItem) {
+            setShowKonatsuModal(true)
         }
 
         // 買い物リストの購入状態を切り替える
@@ -799,10 +810,28 @@ function App() {
                 </span>
 
                                         <button
+                                            type="button"
                                             className="delete-button"
                                             onClick={() => deleteItem(item.id)}
+                                            aria-label={`${item.name}を削除`}
                                         >
-                                            削除
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                aria-hidden="true"
+                                            >
+                                                <path d="M3 6h18"/>
+                                                <path d="M8 6V4h8v2"/>
+                                                <path d="M19 6l-1 14H6L5 6"/>
+                                                <path d="M10 10v7"/>
+                                                <path d="M14 10v7"/>
+                                            </svg>
                                         </button>
                                     </div>
                                 ))}
@@ -818,17 +847,39 @@ function App() {
                                     : `▼ もっと見る（残り${visibleShoppingItems.length - 3}件）`}
                             </button>
                         )}
-                        {shoppingItems.length > 0 &&
-                            shoppingItems.every(item => item.purchased) && (
-                                <div className="konatsu-reaction">
+                        {showKonatsuModal && (
+                            <div
+                                className="konatsu-modal-overlay"
+                                onClick={() => setShowKonatsuModal(false)}
+                                role="presentation"
+                            >
+                                <div
+                                    className="konatsu-modal"
+                                    role="dialog"
+                                    aria-modal="true"
+                                    aria-label="お買い物完了"
+                                >
+                                    <button
+                                        type="button"
+                                        className="konatsu-modal-close"
+                                        onClick={() => setShowKonatsuModal(false)}
+                                        aria-label="閉じる"
+                                    >
+                                        ×
+                                    </button>
+
                                     <img
                                         src={`${import.meta.env.BASE_URL}konatsu-complete.png`}
                                         alt="お買い物完了を喜ぶこなつ"
                                     />
+
                                     <p>お買い物おつかれさま♡</p>
                                     <p>ぜんぶ買えたね！えらいにゃん♪</p>
+
+                                    <small>画面をタップして閉じる</small>
                                 </div>
-                            )}
+                            </div>
+                        )}
 
                     </section>
 
