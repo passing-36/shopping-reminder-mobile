@@ -212,6 +212,27 @@ button {
 .prediction-card p {
     font-size: 12px;
 }
+/* ========================================
+   Ver.1.7 未購入件数バッジ
+======================================== */
+
+.unpurchased-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: #F5DFE5;
+  color: #99546B;
+
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 
 .prediction-message {
     margin-top: 25px;
@@ -2004,4 +2025,30 @@ h2 {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+}
+/* Ver.1.7 購入履歴の削除ボタン */
+.history-delete-button {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: #F8E7EC;
+  color: #C77C95;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* タップしたときのアニメーション */
+.history-delete-button:active {
+  transform: scale(0.88);
+  background: #F3D8E1;
 }

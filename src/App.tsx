@@ -750,7 +750,13 @@ function App() {
                     <section className="shopping-section">
                         <div className="section-heading">
                             <h2>買い物リスト</h2>
-                            <span>未購入 {unpurchasedItems.length}件</span>
+                            <span className="unpurchased-badge">
+  {unpurchasedItems.length > 0 ? (
+      <>🛒 あと {unpurchasedItems.length}件</>
+  ) : (
+      <>✓ お買い物完了</>
+  )}
+</span>
                         </div>
 
                         <div className="add-form">
@@ -1052,7 +1058,23 @@ function App() {
                                                     onClick={() => deleteHistoryItem(item.id)}
                                                     aria-label={`${item.name}の購入履歴を削除`}
                                                 >
-                                                    削除
+                                                    <svg
+                                                        width="20"
+                                                        height="20"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        strokeWidth="1.8"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path d="M3 6h18"/>
+                                                        <path d="M8 6V4h8v2"/>
+                                                        <path d="M19 6l-1 14H6L5 6"/>
+                                                        <path d="M10 10v7"/>
+                                                        <path d="M14 10v7"/>
+                                                    </svg>
                                                 </button>
                                             </div>
                                         ))}
