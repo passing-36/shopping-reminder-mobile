@@ -225,6 +225,11 @@ function App() {
         setShoppingItems((currentItems) =>
             currentItems.filter((item) => item.id !== id)
         )
+
+        // 削除した商品が直前の購入操作なら取り消し情報を消す
+        if (lastPurchaseAction?.itemId === id) {
+            setLastPurchaseAction(null)
+        }
     }
     const [newFrequentItem, setNewFrequentItem] = useState('')
 
@@ -1025,7 +1030,7 @@ function App() {
                             <p>まだ購入履歴はありません。</p>
                         ) : (
                             <>
-                            {/* 購入履歴の検索ボックス */}
+                                {/* 購入履歴の検索ボックス */}
                                 <div className="history-search">
                                     <input
                                         type="search"
