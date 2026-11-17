@@ -92,6 +92,28 @@ function App() {
 
         return []
     })
+    const [currentDate, setCurrentDate] = useState(() => new Date())
+    useEffect(() => {
+        const timer = window.setInterval(() => {
+            setCurrentDate(new Date())
+        }, 60 * 1000)
+
+        return () => window.clearInterval(timer)
+    }, [])
+
+    useEffect(() => {
+        const updateDate = () => {
+            setCurrentDate(new Date())
+        }
+
+        document.addEventListener('visibilitychange', updateDate)
+        window.addEventListener('focus', updateDate)
+
+        return () => {
+            document.removeEventListener('visibilitychange', updateDate)
+            window.removeEventListener('focus', updateDate)
+        }
+    }, [])
     // 現在表示している画面を管理する
     const [activeTab, setActiveTab] = useState<
         'home' | 'history' | 'prediction'
@@ -189,7 +211,7 @@ function App() {
         }
 
         // 買い物リストに追加
-        setShoppingItems((currentItems) => [...currentItems, item])
+        setShoppingItems((currentItems) => [item, ...currentItems])
 
         // 入力欄を空にする
         setNewItem('')
@@ -685,7 +707,7 @@ function App() {
         const purchasedDate = new Date(item.purchasedAt)
         if (Number.isNaN(purchasedDate.getTime())) return false
 
-        const today = new Date()
+        const today = currentDate
 
         return (
             purchasedDate.getFullYear() === today.getFullYear() &&
@@ -755,23 +777,7 @@ function App() {
                             </div>
                         )}
                         <div className="shopping-list">
-                            {shoppingItems
-                                .filter((item) => {
-                                    if (!item.purchased) return true
-
-                                    if (!item.purchasedAt) return false
-
-                                    const purchasedDate = new Date(item.purchasedAt)
-                                    if (Number.isNaN(purchasedDate.getTime())) return false
-
-                                    const today = new Date()
-
-                                    return (
-                                        purchasedDate.getFullYear() === today.getFullYear() &&
-                                        purchasedDate.getMonth() === today.getMonth() &&
-                                        purchasedDate.getDate() === today.getDate()
-                                    )
-                                })
+                            {visibleShoppingItems
                                 .slice(0, showAllItems ? undefined : 3)
                                 .map((item) => (
                                     <div
@@ -785,7 +791,7 @@ function App() {
                                             aria-label={`${item.name}を${item.purchased ? '未購入' : '購入済み'}にする`}
                                             aria-pressed={item.purchased}
                                         >
-                                            {item.purchased ? '✓' : '○'}
+                                            {item.purchased ? '♥' : '♡'}
                                         </button>
 
                                         <span className="item-name">
@@ -812,6 +818,17 @@ function App() {
                                     : `▼ もっと見る（残り${visibleShoppingItems.length - 3}件）`}
                             </button>
                         )}
+                        {shoppingItems.length > 0 &&
+                            shoppingItems.every(item => item.purchased) && (
+                                <div className="konatsu-reaction">
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}konatsu-complete.png`}
+                                        alt="お買い物完了を喜ぶこなつ"
+                                    />
+                                    <p>お買い物おつかれさま♡</p>
+                                    <p>ぜんぶ買えたね！えらいにゃん♪</p>
+                                </div>
+                            )}
 
                     </section>
 
